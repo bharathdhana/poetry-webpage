@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poem Showcase - Interactive Poetry Collection</title>
+
+  <!-- Elegant Google Fonts for Typography constraint -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..600&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- Animated background layers -->
+  <div class="background-container">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="noise-overlay"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="glass-nav">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="/brand-logo.png" alt="Poet Icon" class="logo-image">
+        <h1>Dhanavan Writes</h1>
+      </a>
+      <div class="nav-menu">
+        <a href="#" id="nav-home" class="nav-link active">Home</a>
+        <a href="#" id="nav-poems" class="nav-link">Poems</a>
+        <a href="#" id="nav-about" class="nav-link">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content wrapper -->
+  <div id="app" class="app-container">
+    <header class="app-header">
+      <h1>Whispers of the Soul</h1>
+      <p>A collection of timeless poetry.</p>
+    </header>
+
+    <!-- Main Sections -->
+    <main class="app-main">
+
+      <!-- Home Section -->
+      <section id="section-home" class="content-section active">
+        <div class="info-card animate-in">
+          <div class="info-content">
+            <p>Welcome to a sanctuary of words, where the quietest thoughts are given voice. Poetry is not just ink on a
+              page; it is the heartbeat of human experience recorded in rhythm and rhyme.</p>
+            <br>
+            <p>The ideology behind this collection is simple: to capture the fragile, fleeting moments of our lives—the
+              profound griefs, the quiet romances, and the sudden sparks of hope—and preserve them in amber. Within
+              these verses, you will find mirrors reflecting your own untold stories.</p>
+            <br>
+            <p>Take your time. Breathe in the verses, let the imagery wash over you, and may you find solace, resonance,
+              and perhaps a piece of yourself within these scattered thoughts.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Poems Section -->
+      <section id="section-poems" class="content-section" style="display: none;">
+        <!-- Search Bar -->
+        <div class="search-container animate-in">
+          <input type="text" id="search-input" class="search-input" placeholder="Search poems by title or content..."
+            aria-label="Search poems">
+          <select id="theme-filter" class="theme-filter" aria-label="Filter by theme">
+            <option value="all">All Themes</option>
+            <option value="Love & Romance">Love & Romance</option>
+            <option value="Nature & Beauty">Nature & Beauty</option>
+            <option value="Life & Time">Life & Time</option>
+            <option value="Sorrow & Grief">Sorrow & Grief</option>
+            <option value="Hope & Inspiration">Hope & Inspiration</option>
+            <option value="Uncategorized">Uncategorized</option>
+          </select>
+          <select id="volume-filter" class="theme-filter" aria-label="Filter by volume">
+            <option value="all">All Volumes</option>
+            <option value="Volume I: Echoes of the Heart">Volume I: Echoes of the Heart</option>
+            <option value="Volume II: Nature's Breath">Volume II: Nature's Breath</option>
+            <option value="Volume III: The Human Experience">Volume III: The Human Experience</option>
+          </select>
+
+          <button id="random-btn" class="theme-filter random-btn" title="Surprise Me (Random Poem)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 3 21 3 21 8"></polyline>
+              <line x1="4" y1="20" x2="21" y2="3"></line>
+              <polyline points="21 16 21 21 16 21"></polyline>
+              <line x1="15" y1="15" x2="21" y2="21"></line>
+              <line x1="4" y1="4" x2="9" y2="9"></line>
+            </svg>
+            <span>Surprise Me</span>
+          </button>
+        </div>
+
+        <!-- Gallery Summary -->
+        <div id="poem-count-summary" class="poem-count-summary"></div>
+
+        <!-- Grid displaying poem cards -->
+        <div class="poem-grid" id="poem-grid">
+          <!-- Rendered dynamically by main.js -->
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="section-about" class="content-section" style="display: none;">
+        <div class="info-card animate-in">
+          <img src="/brand-logo.png" alt="Logo" class="about-logo">
+          <h2 class="card-title">About Me</h2>
+          <div class="info-content">
+            <p>Hello. My name is <strong>dhanavan</strong>.</p>
+            <br>
+            <p>I am a soul who observers life—an author, a poet, and a quiet wanderer tracing the invisible threads of
+              human connection. I write because some emotions are too vast to be held silently within the chest. Through
+              rhythm and verse, I attempt to distill the beautiful chaos of existence into something tender, grounded,
+              and lasting.</p>
+            <br>
+            <p>From the depths of melancholic nostalgia to the quiet peaks of serenity, these poems are pieces of my
+              heart, scattered into the wind, hoping they might find a home in yours. Thank you for walking this journey
+              with me.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>&copy; 2026 dhanavan writes</p>
+    <a href="mailto:bharathdhanavan2612@gmail.com" class="footer-contact">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+      <span>bharathdhanavan2612@gmail.com</span>
+    </a>
+  </footer>
+
+  <!-- Reader Modal -->
+  <div id="reader-modal" class="reader-modal glass-panel hidden">
+    <div class="reader-content">
+      <div class="reader-header">
+        <button id="font-toggle" class="font-toggle-btn" title="Toggle Typography">
+          <span class="font-icon">Aa</span>
+        </button>
+        <button class="close-btn" id="close-btn" aria-label="Close Poem">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="reader-scroll-area">
+        <h2 id="reader-title" class="reader-title"></h2>
+        <p id="reader-author" class="reader-author"></p>
+        <div id="reader-body" class="reader-body"></div>
+
+        <!-- Engagement Section -->
+        <div class="engagement-section">
+          <button id="like-btn" class="like-btn" aria-label="Like Poem">
+            <svg class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+              </path>
+            </svg>
+            <span id="like-count">0</span>
+          </button>
+
+          <div class="comments-area">
+            <h3>Comments</h3>
+            <div id="comments-list" class="comments-list">
+              <!-- Comments rendered here -->
+            </div>
+            <form id="comment-form" class="comment-form">
+              <input type="text" id="comment-input" placeholder="Leave a comment..." required>
+              <button type="submit">Post</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
